@@ -85,17 +85,6 @@ class Platformer extends Phaser.Scene {
             )
         });
 
-        /*
-        this.anims.create({
-            key: 'playerdeath',
-            frames: this.anims.generateFrameNumbers('deathanims_sheet',
-                {start: 0, end: 4}
-            ),
-            frameRate: 20,
-            repeat: -1
-        });
-        */
-
         // Add a tileset to the map
         // First parameter: name we gave the tileset in Tiled
         // Second parameter: key for the tilesheet (from this.load.image in Load.js)
@@ -282,7 +271,8 @@ class Platformer extends Phaser.Scene {
 
     playerDeath() {
         my.sprite.player.visible = false;
-        this.physics.world.gravity.y = 0;
+        my.sprite.player.setVelocityX(0);
+        my.sprite.player.setVelocityY(0);
         my.sprite.player.x = 0;
         my.sprite.player.y = 0;
         this.physics.world.gravity.y = 0;
